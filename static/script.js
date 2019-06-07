@@ -19,7 +19,7 @@ function readURL(input) {
           })
           .then(function (response) {
               //handle success
-              Document.querySelector("outer").innerHTML+=response.data;
+              document.querySelector("#outer").innerHTML+=response.data;
               console.log(response);
           })
           .catch(function (response) {
