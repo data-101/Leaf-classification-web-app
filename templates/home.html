@@ -1,18 +1,18 @@
 <html>
    <head>
          <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-        
+        <h1>Ayurvedic Leaf Classifier</h1>
    </head>
 
    <body>
-      <div id="outer">
+      <div class=".outer">
               <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <div class="file-upload">
   
   <div class="image-upload-wrap">
     <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
     <div class="drag-text">
-      <h3>Drag and drop a file or select add Image</h3>
+      <img src="{{ url_for('static', filename='logo.png') }}" alt="Drag and drop a file or select add Image"> 
     </div>
   </div>
   <div class="file-upload-content">
@@ -22,10 +22,11 @@
     </div>
   </div>
 </div>
+</div>
 {% block javascript %}
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="{{ url_for('static',filename='script.js') }}"></script>
-</div>
+
 
    {% endblock %}
    </body>

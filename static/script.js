@@ -19,7 +19,8 @@ function readURL(input) {
           })
           .then(function (response) {
               //handle success
-              Document.querySelector("outer").innerHTML+=response.data;
+
+              window.location.href="/"+response.data
               console.log(response);
           })
           .catch(function (response) {

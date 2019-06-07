@@ -7,7 +7,7 @@ from keras.preprocessing import image
 from keras.models import load_model
 app = Flask(__name__)
 
-page=["hibiscus.html","neem.html","tulsi"]
+page=["hibiscus","neem","tulsi"]
 model=load_model("model/leafClassifier_v3.h5")
 graph = tf.get_default_graph()
 
@@ -27,9 +27,19 @@ def upload_file():
       #print(test)
       with graph.as_default():
          result = model.predict(img)
-      render_template("plants/"+page[result.argmax()])
-      
-      return  render_template("plants/"+page[result.argmax()])
+      return page[result.argmax()]  #render_template("plants/"+page[result.argmax()])
+
+@app.route('/neem')
+def neem_page():
+   return render_template('plants/neem.html')
+
+@app.route('/hibiscus')
+def hibiscus_page():
+   return render_template('plants/hibiscus.html')
+
+@app.route('/tulsi')
+def tulsi_page():
+   return render_template('plants/tulsi.html')
 		
 if __name__ == '__main__':
    app.run(debug = True)#debug = True)
